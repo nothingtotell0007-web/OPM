@@ -26,10 +26,10 @@
     <header class="p-6 bg-red-700 text-white shadow-lg fixed top-0 w-full z-50">
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo/Site Title -->
-            <a href="#" class="text-2xl font-bold tracking-tight">Mentorship Hub</a>
+            <a href="mentorship_platform.html" class="text-2xl font-bold tracking-tight">Mentorship Hub</a>
             
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex space-x-6">
+            <!-- Navigation Links (Desktop) -->
+            <nav id="desktop-nav" class="hidden md:flex space-x-6">
                 <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
                 <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
                 <a href="find_a_mentor.html" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
@@ -37,13 +37,33 @@
             </nav>
             
             <!-- Mobile Menu Button -->
-            <button class="md:hidden">
+            <button id="mobile-menu-button" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-red-700 z-50">
+        <div class="container mx-auto px-6 py-4 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-12">
+                <a href="mentorship_platform.html" class="text-2xl font-bold tracking-tight text-white">Mentorship Hub</a>
+                <button id="close-mobile-menu" class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-6 text-2xl font-semibold text-white">
+                <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
+                <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
+                <a href="find_a_mentor.html" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
+                <a href="contact.html" class="hover:text-red-200 transition-colors duration-200">Contact</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section with Background Image -->
     <main class="hero-section flex items-center justify-center text-center text-white relative pt-16" style="background-image: url('https://i.postimg.cc/VNGF5y9d/sds.jpg');">
@@ -58,25 +78,25 @@
             <p class="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow-md max-w-2xl mx-auto">
                 Connect with experienced professionals who can guide you to achieve your personal and career goals.
             </p>
-            <a href="find_a_mentor.html" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-red-800 shadow-xl">
+            <a href="#" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-red-800 shadow-xl">
                 Find a Mentor
             </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="p-6 bg-red-950 text-gray-300 text-center">
+    <footer class="p-6 bg-red-950 text-gray-300 text-center mt-auto">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <p>&copy; 2025 Mentorship Hub. All rights reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <!-- Updated Instagram SVG icon -->
+                    <!-- Instagram SVG icon -->
                     <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-red-500 transition-colors duration-200">
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C8.948 2 8.657 2.012 7.644 2.057c-1.006.045-1.89.213-2.569.467-.677.253-1.29.596-1.876 1.182-.58.586-.923 1.199-1.182 1.876-.254.679-.422 1.563-.467 2.569C2.012 8.657 2 8.948 2 12s.012 3.343.057 4.356c.045 1.006.213 1.89.467 2.569.253.677.596 1.29 1.182 1.876.586.58.199 1.193 1.876 1.182.679.254 1.563.422 2.569.467C8.657 22.012 8.948 22 12 22s3.343-.012 4.356-.057c1.006-.045 1.89-.213 2.569-.467.677-.253 1.29-.596 1.876-1.182.58-.586.923-1.199 1.182-1.876.254-.679.422-1.563.467-2.569C22.012 15.343 22 15.052 22 12s-.012-3.343-.057-4.356c-.045-1.006-.213-1.89-.467-2.569-.253-.677-.596-1.29-1.182-1.876-.586-.58-.199-1.193-1.876-1.182-.679-.254-1.563-.422-2.569-.467C15.343 2.012 15.052 2 12 2zm0 1.5c3.042 0 3.376.011 4.33.056 1.13.051 1.745.286 2.164.444.42.158.74.37 1.05.68.31.31.522.63.68 1.05.158.419.389 1.034.444 2.164.045.954.056 1.288.056 4.33s-.011 3.376-.056 4.33c-.051 1.13-.286 1.745-.444 2.164-.158.42-.37.74-.68 1.05-.31.31-.63.522-1.05.68-.419.158-1.034.389-2.164.444-.954.045-1.288.056-4.33.056s-3.376-.011-4.33-.056c-1.13-.051-1.745-.286-2.164-.444-.42-.158-.74-.37-1.05-.68-.31-.31-.522-.63-.68-1.05-.158-.419-.389-1.034-.444-2.164-.045-.954-.056-1.288-.056-4.33s.011-3.376.056-4.33c.051-1.13.286-1.745.444-2.164.158-.42.37-.74.68-1.05.31-.31.63-.522 1.05-.68.419-.158 1.034-.389 2.164-.444.954-.045 1.288-.056 4.33-.056zM12 7.5c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 1.5c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm4.5-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
                         </svg>
                     </a>
-                    <!-- Updated Gmail SVG icon -->
+                    <!-- Gmail SVG icon -->
                     <a href="mailto:contact@mentorshiphub.com" aria-label="Gmail" class="hover:text-red-500 transition-colors duration-200">
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
@@ -86,6 +106,16 @@
             </div>
         </div>
     </footer>
+    
+    <script type="text/javascript">
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
 
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
