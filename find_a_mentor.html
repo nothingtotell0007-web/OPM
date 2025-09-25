@@ -33,7 +33,6 @@
             <nav id="desktop-nav" class="hidden md:flex space-x-6">
                 <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
                 <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
-                <a href="find_a_mentor.html" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
                 <a href="contact.html" class="hover:text-red-200 transition-colors duration-200">Contact</a>
             </nav>
             
@@ -60,7 +59,6 @@
             <nav class="flex flex-col space-y-6 text-2xl font-semibold text-white">
                 <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
                 <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
-                <a href="find_a_mentor.html" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
                 <a href="contact.html" class="hover:text-red-200 transition-colors duration-200">Contact</a>
             </nav>
         </div>
@@ -162,6 +160,106 @@
 
         document.getElementById('close-mobile-menu').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.add('hidden');
+        });
+
+        // Other stream input functionality
+        const streamSelect = document.getElementById('stream');
+        const otherStreamContainer = document.getElementById('other-stream-container');
+        const otherStreamInput = document.getElementById('other-stream');
+
+        streamSelect.addEventListener('change', function() {
+            if (this.value === 'other') {
+                otherStreamContainer.classList.remove('hidden');
+                otherStreamInput.setAttribute('required', 'required');
+            } else {
+                otherStreamContainer.classList.add('hidden');
+                otherStreamInput.removeAttribute('required');
+            }
+        });
+
+        // Firebase Setup
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        
+        const __app_id = "{{__app_id}}";
+        const __firebase_config = "{{__firebase_config}}";
+        const __initial_auth_token = "{{__initial_auth_token}}";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        
+        let userId;
+
+        // Form submission handler
+        document.getElementById('mentor-request-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            // Check auth state and get user ID
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token.length > 0) {
+                try {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                    userId = auth.currentUser.uid;
+                } catch (error) {
+                    console.error("Custom token sign-in failed:", error);
+                    try {
+                        await signInAnonymously(auth);
+                        userId = auth.currentUser.uid;
+                    } catch (anonError) {
+                        console.error("Anonymous sign-in failed:", anonError);
+                        return;
+                    }
+                }
+            } else {
+                try {
+                    await signInAnonymously(auth);
+                    userId = auth.currentUser.uid;
+                } catch (error) {
+                    console.error("Anonymous sign-in failed:", error);
+                    return;
+                }
+            }
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const stream = streamSelect.value === 'other' ? otherStreamInput.value : streamSelect.value;
+            
+            const formData = {
+                name,
+                email,
+                mobile,
+                stream,
+                timestamp: new Date()
+            };
+
+            try {
+                // Add a new document with a generated ID
+                await addDoc(collection(db, "artifacts", appId, "users", userId, "mentor_requests"), formData);
+                
+                // Show pop-up message
+                const messageBox = document.getElementById('message-box');
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('flex');
+                
+                // Set timeout to hide message and redirect after 5 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('flex');
+                    messageBox.classList.add('hidden');
+                    window.location.href = "mentorship_platform.html"; // Redirect to main page
+                }, 5000); // 5 seconds
+                
+                // Reset the form
+                this.reset();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
         });
     </script>
 </body>
