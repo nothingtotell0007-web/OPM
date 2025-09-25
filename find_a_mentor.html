@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Mentor</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <!-- Header Section -->
+    <header class="p-6 bg-red-700 text-white shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo/Site Title -->
+            <a href="mentorship_platform.html" class="text-2xl font-bold tracking-tight">Mentorship Hub</a>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
+                <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
+                <a href="find_a_mentor.html" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
+                <a href="contact.html" class="hover:text-red-200 transition-colors duration-200">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4 form-container">
+            <h1 class="text-4xl font-bold text-center text-gray-900 mb-4">Find a Mentor</h1>
+            <p class="text-center text-lg text-gray-600 mb-12">
+                Provide your details below, and our team will contact you soon to help you find the perfect mentor.
+            </p>
+
+            <form id="mentor-request-form" class="bg-white p-8 rounded-lg shadow-lg">
+                <!-- Name Field -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Your Email Address" required>
+                </div>
+                
+                <!-- Mobile Number Field -->
+                <div class="mb-4">
+                    <label for="mobile" class="block text-gray-700 font-semibold mb-2">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" class="form-input" placeholder="Your Mobile Number" required>
+                </div>
+
+                <!-- Stream of Interest Field -->
+                <div class="mb-6">
+                    <label for="stream" class="block text-gray-700 font-semibold mb-2">Stream of Interest</label>
+                    <select id="stream" name="stream" class="form-input bg-white" required>
+                        <option value="" disabled selected>Select a stream</option>
+                        <option value="software-engineering">Software Engineering</option>
+                        <option value="marketing">Marketing & Strategy</option>
+                        <option value="product-management">Product Management</option>
+                        <option value="data-science">Data Science & Analytics</option>
+                        <option value="ui-ux-design">UI/UX Design</option>
+                        <option value="finance">Finance & Investment</option>
+                        <option value="entrepreneurship">Entrepreneurship</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <!-- Other Stream Input (hidden by default) -->
+                <div id="other-stream-container" class="mb-6 hidden">
+                    <label for="other-stream" class="block text-gray-700 font-semibold mb-2">Please specify</label>
+                    <input type="text" id="other-stream" name="other-stream" class="form-input" placeholder="e.g., Graphic Design, Public Speaking">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-red-800 shadow-lg">
+                    Submit
+                </button>
+            </form>
+
+            <!-- Submission Message Box -->
+            <div id="message-box" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 items-center justify-center p-4 z-50">
+                <div class="bg-white p-8 rounded-lg text-center shadow-2xl max-w-sm">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Thank you!</h3>
+                    <p class="text-gray-600 mb-6">We have received your details and our team will contact you soon.</p>
+                    <button onclick="document.getElementById('message-box').classList.add('hidden')" class="bg-red-600 text-white font-bold py-2 px-6 rounded-full hover:bg-red-800 transition-colors duration-200">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="p-6 bg-red-950 text-gray-300 text-center mt-auto">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <p>&copy; 2025 Mentorship Hub. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <!-- Instagram SVG icon -->
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-red-500 transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.948 2 8.657 2.012 7.644 2.057c-1.006.045-1.89.213-2.569.467-.677.253-1.29.596-1.876 1.182-.58.586-.923 1.199-1.182 1.876-.254.679-.422 1.563-.467 2.569C2.012 8.657 2 8.948 2 12s.012 3.343.057 4.356c.045 1.006.213 1.89.467 2.569.253.677.596 1.29 1.182 1.876.586.58.199 1.193 1.876 1.182.679.254 1.563.422 2.569.467C8.657 22.012 8.948 22 12 22s3.343-.012 4.356-.057c1.006-.045 1.89-.213 2.569-.467.677-.253 1.29-.596 1.876-1.182.58-.586.923-1.199 1.182-1.876.254-.679.422-1.563.467-2.569C22.012 15.343 22 15.052 22 12s-.012-3.343-.057-4.356c-.045-1.006-.213-1.89-.467-2.569-.253-.677-.596-1.29-1.182-1.876-.586-.58-.199-1.193-1.876-1.182-.679-.254-1.563-.422-2.569-.467C15.343 2.012 15.052 2 12 2zm0 1.5c3.042 0 3.376.011 4.33.056 1.13.051 1.745.286 2.164.444.42.158.74.37 1.05.68.31.31.522.63.68 1.05.158.419.389 1.034.444 2.164.045.954.056 1.288.056 4.33s-.011 3.376-.056 4.33c-.051 1.13-.286 1.745-.444 2.164-.158.42-.37.74-.68 1.05-.31.31-.63.522-1.05.68-.419.158-1.034.389-2.164.444-.954.045-1.288.056-4.33.056s-3.376-.011-4.33-.056c-1.13-.051-1.745-.286-2.164-.444-.42-.158-.74-.37-1.05-.68-.31-.31-.522-.63-.68-1.05-.158-.419-.389-1.034-.444-2.164-.045-.954-.056-1.288-.056-4.33s.011-3.376.056-4.33c.051-1.13.286-1.745.444-2.164.158-.42.37-.74.68-1.05.31-.31.63-.522 1.05-.68.419-.158 1.034-.389 2.164-.444.954-.045 1.288-.056 4.33-.056zM12 7.5c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 1.5c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm4.5-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+                        </svg>
+                    </a>
+                    <!-- Gmail SVG icon -->
+                    <a href="mailto:contact@mentorshiphub.com" aria-label="Gmail" class="hover:text-red-500 transition-colors duration-200">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        setLogLevel('debug');
+        
+        // --- Initialize Firebase and Firestore ---
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        
+        let userId = '';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        async function authenticateUser() {
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            if (initialAuthToken) {
+                try {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } catch (error) {
+                    console.error("Firebase custom auth failed:", error);
+                    await signInAnonymously(auth);
+                }
+            } else {
+                await signInAnonymously(auth);
+            }
+            userId = auth.currentUser?.uid || crypto.randomUUID();
+        }
+
+        authenticateUser();
+
+        // --- Form Submission Logic ---
+        document.getElementById('mentor-request-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const streamSelect = document.getElementById('stream');
+            let stream = streamSelect.value;
+            if (stream === 'other') {
+                stream = document.getElementById('other-stream').value;
+            }
+
+            // Save data to Firestore
+            try {
+                await addDoc(collection(db, `/artifacts/${appId}/users/${userId}/mentor_requests`), {
+                    name: name,
+                    email: email,
+                    mobile: mobile,
+                    stream: stream,
+                    timestamp: new Date()
+                });
+                console.log("Document successfully written!");
+
+                // Show submission message
+                document.getElementById('message-box').classList.remove('hidden');
+                document.getElementById('message-box').classList.add('flex');
+                
+                // Reset form
+                this.reset();
+            } catch (error) {
+                console.error("Error writing document: ", error);
+            }
+        });
+
+        // Show/hide "Other" input field
+        const streamSelect = document.getElementById('stream');
+        const otherStreamContainer = document.getElementById('other-stream-container');
+        const otherStreamInput = document.getElementById('other-stream');
+
+        streamSelect.addEventListener('change', function() {
+            if (this.value === 'other') {
+                otherStreamContainer.classList.remove('hidden');
+                otherStreamInput.setAttribute('required', 'required');
+            } else {
+                otherStreamContainer.classList.add('hidden');
+                otherStreamInput.removeAttribute('required');
+            }
+        });
+    </script>
+</body>
+</html>

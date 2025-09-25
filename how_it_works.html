@@ -1,0 +1,107 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a semi-transparent overlay on the background image */
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        /* Make the main hero section take up the full viewport height */
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <!-- Header Section -->
+    <header class="p-6 bg-red-700 text-white shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo/Site Title -->
+            <a href="mentorship_platform.html" class="text-2xl font-bold tracking-tight">Mentorship Hub</a>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="about.html" class="hover:text-red-200 transition-colors duration-200">About</a>
+                <a href="how_it_works.html" class="hover:text-red-200 transition-colors duration-200">How It Works</a>
+                <a href="mentorship_platform.html#mentors" class="hover:text-red-200 transition-colors duration-200">Our Mentors</a>
+                <a href="mentorship_platform.html#contact" class="hover:text-red-200 transition-colors duration-200">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <main class="py-24 px-4 sm:px-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-900 mb-12">How It Works</h1>
+
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-gray-600 mb-12 text-center leading-relaxed">
+                    Our platform is designed to make the process of finding and connecting with a mentor as simple as possible. Follow these three easy steps to get started on your journey.
+                </p>
+
+                <!-- Step 1: Set Your Goals -->
+                <div class="mb-16 flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                    <div class="bg-red-500 text-white p-6 rounded-full inline-block mb-4 md:mb-0 md:mr-8 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.412a2.25 2.25 0 013.182 3.182l-10.033 10.033c-.636.636-1.503 1.054-2.42 1.229L5 21l-.775-4.467c-.175-.917.243-1.784.88-2.42l10.033-10.033z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">1. Define Your Goals</h2>
+                        <p class="text-gray-600">Start by defining what you want to achieve. Whether you're looking for career advancement, skill development, or personal growth, clarifying your objectives will help you find the perfect mentor. Our platform provides tools to help you identify your goals and match them with a mentor's expertise.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Find Your Mentor -->
+                <div class="mb-16 flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                    <div class="bg-red-500 text-white p-6 rounded-full inline-block mb-4 md:mb-0 md:mr-8 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4.132 4.132 0 00-3.23 2.505C7.295 7.72 6.75 8.25 6 9c-.75.75-1.295 1.295-2.145 2.145C3.125 11.855 2.5 12.375 2.5 13.5v.5c0 1.5.5 2 2 2.5h1.5l1.5 1.5h1.5l1.5 1.5h1.5l1.5 1.5h1.5l1.5-1.5h1.5l1.5-1.5h1.5l1.5-1.5h1.5c1.5 0 2-0.5 2-2.5v-.5c0-1.125-.625-1.645-1.355-2.355C17.295 8.25 16.75 7.72 16 7c-.75-.75-1.295-1.295-2.145-2.145C12.875 4.625 12.375 4 12 4.354z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">2. Find Your Mentor</h2>
+                        <p class="text-gray-600">Our powerful search and matching tools allow you to browse a diverse community of mentors. You can filter by industry, skills, and availability to find someone who perfectly fits your needs. Each mentor's profile provides detailed information about their background and expertise.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Start Mentoring -->
+                <div class="mb-16 flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                    <div class="bg-red-500 text-white p-6 rounded-full inline-block mb-4 md:mb-0 md:mr-8 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-1.397 0-2.775.253-4.045.75L6 4.5l1.045.545c1.27.505 2.648.75 4.045.75a11.955 11.955 0 014.577-1.199L18 4.5l1.045.545a11.955 11.955 0 014.577-1.199L24 4.5l-1.045-.545a11.955 11.955 0 01-4.577 1.199L12 2.944zM12 18.056c1.397 0 2.775-.253 4.045-.75L18 16.5l-1.045-.545a11.955 11.955 0 01-4.577-1.199L12 14.944z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">3. Begin Your Journey</h2>
+                        <p class="text-gray-600">Once you've found a mentor, you can connect through our secure platform for video calls or messaging. You'll be able to schedule sessions, track your progress, and build a lasting relationship that helps you achieve your goals.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-6 bg-gray-900 text-gray-300 text-center">
+        <p>&copy; 2025 Mentorship Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
